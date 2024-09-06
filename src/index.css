@@ -1,0 +1,13 @@
+@import url("https://use.typekit.net/pta6zgk.css");
+@import url("https://use.typekit.net/pta6zgk.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    html{
+        font-family: "raleway", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+    }
+}
