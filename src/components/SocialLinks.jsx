@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
+import { BsFillPersonLinesFill } from 'react-icons/bs';
 
 const SocialLinks = () => {
   const links = [
@@ -12,7 +12,7 @@ const SocialLinks = () => {
           LinkedIn <FaLinkedin size={30} />
         </>
       ),
-      href: 'https://linkedin.com', // Fixed missing ':' in URL
+      href: 'https://www.linkedin.com/in/abhishek-kumar-1546ba265/', // Fixed missing ':' in URL
       style: 'rounded-tr-md',
     },
     {
@@ -22,7 +22,7 @@ const SocialLinks = () => {
           GitHub <FaGithub size={30} />
         </>
       ),
-      href: 'https://github.com', // Fixed missing ':' in URL
+      href: 'https://github.com/itstheabhiiigmailcom', // Fixed missing ':' in URL
     },
     {
       id: 3,

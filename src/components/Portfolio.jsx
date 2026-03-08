@@ -1,36 +1,48 @@
-import React from "react";
-import weather from "../assets/portfolio/weather.jpg";
-import arrayDestruct from "../assets/portfolio/arrayDestruct.jpeg";
-import reactParallax from "../assets/portfolio/reactParallax.jpg";
-import navbar from "../assets/portfolio/navbar.jpeg";
-import reactSmooth from "../assets/portfolio/reactSmooth.jpeg";
-import installNode from "../assets/portfolio/installNode.png";
+import React from 'react';
+import weather from '../assets/portfolio/weather.jpg';
+import arrayDestruct from '../assets/portfolio/arrayDestruct.jpeg';
+import textEditor from '../assets/portfolio/text-editor.jpg';
+import installNode from '../assets/portfolio/installNode.png';
+import todo from '../assets/portfolio/todo.png';
+import scrumbleWord from '../assets/portfolio/scrumble_word.png';
 
 const Portfolio = () => {
   const portfolios = [
     {
       id: 1,
       src: arrayDestruct,
+      demo: 'https://abhiiii-portfolio.netlify.app/',
+      code: 'https://github.com/itstheabhiiigmailcom/portfolio',
     },
     {
       id: 2,
-      src: reactParallax,
+      src: textEditor,
+      demo: 'https://textsmanipulator.netlify.app/',
+      code: 'https://github.com/itstheabhiiigmailcom/Text-manipulator',
     },
     {
       id: 3,
-      src: navbar,
+      src: scrumbleWord,
+      demo: 'https://scrumblewords.netlify.app/',
+      code: 'https://github.com/itstheabhiiigmailcom/scrumble-word',
     },
     {
       id: 4,
-      src: reactSmooth,
+      src: todo,
+      demo: 'https://cool-valkyrie-6883df.netlify.app/',
+      code: 'https://github.com/itstheabhiiigmailcom/Password-Generator/tree/main/05passwordGenerator',
     },
     {
       id: 5,
       src: installNode,
+      demo: 'https://your-demo-link-5.com',
+      code: 'https://github.com/yourusername/repo5',
     },
     {
       id: 6,
       src: weather,
+      demo: 'https://your-demo-link-6.com',
+      code: 'https://github.com/yourusername/repo6',
     },
   ];
 
@@ -48,20 +60,26 @@ const Portfolio = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {portfolios.map(({ id, src }) => (
+          {portfolios.map(({ id, src, demo, code }) => (
             <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
               <img
                 src={src}
                 alt=""
-                className="rounded-md duration-200 hover:scale-105"
+                className="w-full h-48 object-cover rounded-md duration-200 hover:scale-105"
               />
+
               <div className="flex items-center justify-center">
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
-                  Demo
-                </button>
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
-                  Code
-                </button>
+                <a href={demo} target="_blank" rel="noopener noreferrer">
+                  <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
+                    Demo
+                  </button>
+                </a>
+
+                <a href={code} target="_blank" rel="noopener noreferrer">
+                  <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105">
+                    Code
+                  </button>
+                </a>
               </div>
             </div>
           ))}
