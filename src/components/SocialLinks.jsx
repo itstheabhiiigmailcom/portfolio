@@ -1,72 +1,65 @@
-import React from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
+import React from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { BsFillPersonLinesFill } from "react-icons/bs";
+import { profile } from "../data/content";
+
+const links = [
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: profile.linkedin,
+    icon: <FaLinkedin size={22} />,
+    className: "rounded-tr-md",
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    href: profile.github,
+    icon: <FaGithub size={22} />,
+  },
+  {
+    id: "email",
+    label: "Email",
+    href: `mailto:${profile.email}`,
+    icon: <HiOutlineMail size={22} />,
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    href: profile.resume,
+    icon: <BsFillPersonLinesFill size={22} />,
+    className: "rounded-br-md",
+    download: true,
+  },
+];
 
 const SocialLinks = () => {
-  const links = [
-    {
-      id: 1,
-      child: (
-        <>
-          LinkedIn <FaLinkedin size={30} />
-        </>
-      ),
-      href: 'https://www.linkedin.com/in/abhishek-kumar-1546ba265/', // Fixed missing ':' in URL
-      style: 'rounded-tr-md',
-    },
-    {
-      id: 2,
-      child: (
-        <>
-          GitHub <FaGithub size={30} />
-        </>
-      ),
-      href: 'https://github.com/itstheabhiiigmailcom', // Fixed missing ':' in URL
-    },
-    {
-      id: 3,
-      child: (
-        <>
-          Email <HiOutlineMail size={30} />
-        </>
-      ),
-      href: 'mailto:itstheabhiii@gmail.com', // Corrected mailto link format
-    },
-    {
-      id: 4,
-      child: (
-        <>
-          Resume <BsFillPersonLinesFill size={30} />
-        </>
-      ),
-      href: '/resume.pdf', // Put resume in public folder
-      style: 'rounded-br-md',
-      download: true,
-    },
-  ];
-
   return (
-    <div className="hidden lg:flex flex-col top-[35%] left-0 fixed">
-      <ul>
-        {links.map(({ id, child, href, style, download }) => (
-          <li
-            key={id}
-            className={`flex justify-between items-center w-40 h-14 px-4 bg-gray-500 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 ${style}`}
-          >
-            <a
-              href={href}
-              className="flex justify-between items-center w-full text-white"
-              download={download}
-              target="_blank"
-              rel="noreferrer"
+    <>
+      <div className="fixed left-0 top-[32%] z-40 hidden lg:flex">
+        <ul>
+          {links.map(({ id, label, href, icon, className, download }) => (
+            <li
+              key={id}
+              className={`group flex h-12 w-40 -translate-x-[7.75rem] items-center bg-social backdrop-blur transition duration-300 hover:translate-x-0 hover:bg-gold ${className || ""}`}
             >
-              {child}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+              <a
+                href={href}
+                download={download ? profile.resumeName : undefined}
+                target={download ? undefined : "_blank"}
+                rel={download ? undefined : "noreferrer"}
+                className="flex h-full w-full items-center justify-between px-3 text-sm text-fg group-hover:text-ink"
+              >
+                {label}
+                {icon}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      </>
   );
 };
 

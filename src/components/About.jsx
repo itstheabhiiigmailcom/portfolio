@@ -1,44 +1,54 @@
 import React from "react";
+import { about, education, focus, stats } from "../data/content";
 
 const About = () => {
   return (
-    <div
-      name="about"
-      className="w-full min-h-screen bg-gradient-to-b from-gray-800 to-black text-white"
-    >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-            About
-          </p>
+    <section name="about" id="about" className="bg-canvas py-24 text-fg">
+      <div className="mx-auto max-w-6xl px-5">
+        <p className="text-sm uppercase tracking-[0.22em] text-brass">About</p>
+        <h2 className="mt-4 max-w-3xl text-xl font-medium leading-relaxed tracking-tight text-fg sm:text-2xl">
+          {about.lead}
+        </h2>
+
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_0.8fr]">
+          <div className="space-y-5 text-base leading-relaxed text-mist">
+            <p>{about.body}</p>
+            <p>{about.closer}</p>
+          </div>
+
+          <aside className="rounded-3xl border border-line bg-card p-6">
+            <p className="text-xs uppercase tracking-[0.18em] text-brass">Education</p>
+            <p className="mt-3 font-serif text-2xl leading-snug">{education.degree}</p>
+            <p className="mt-2 text-sm text-fg">{education.school}</p>
+            <p className="mt-2 text-sm text-mist">{education.meta}</p>
+          </aside>
         </div>
 
-        <p className="text-xl mt-20">
-          To secure a challenging position in the IT industry that allows me to
-          utilize my technical skills, problem-solving abilities, and passion
-          for software development. I aim to contribute to innovative projects
-          and collaborate with talented professionals to drive the growth of the
-          organization. Eager to learn and adapt in a dynamic environment, I am
-          committed to enhancing my skills in software development, web
-          technologies, and emerging IT trends. I am enthusiastic about applying
-          my academic knowledge and hands-on experience to develop efficient,
-          scalable solutions that make a meaningful impact.
-        </p>
+        <dl className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {stats.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-2xl border border-line px-4 py-5 transition hover:border-brass/40"
+            >
+              <dt className="font-serif text-3xl text-fg">{item.value}</dt>
+              <dd className="mt-1 text-sm text-mist">{item.label}</dd>
+            </div>
+          ))}
+        </dl>
 
-        <br />
-
-        <p className="text-xl">
-          I am a 3rd-year computer science student and a detail-oriented
-          software developer eager to expand my knowledge and skills in the
-          field. Knowledge in C, C++, Python & JavaScript, with hands-on
-          experience in web application development through academic projects.
-          Understanding of data structure and algorithms, with the ability to
-          solve problems efficiently. Seeking an entry-level position to
-          leverage my technical skills and contribute to innovative software
-          solutions.
-        </p>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {focus.map((item) => (
+            <article
+              key={item.title}
+              className="rounded-2xl border border-line bg-card p-5 transition duration-300 hover:-translate-y-1 hover:border-brass/40"
+            >
+              <h3 className="font-serif text-2xl">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-mist">{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
