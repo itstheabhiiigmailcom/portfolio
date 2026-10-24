@@ -1,25 +1,101 @@
-import React from 'react'
+import React from "react";
+import { profile } from "../data/content";
 
 const Contact = () => {
-  return <div name="contact" className='w-full h-screen bg-gradient-to-b from-black to-gray-800 p-4 text-white'>
+  return (
+    <section name="contact" id="contact" className="bg-canvas py-24 text-fg">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="text-sm uppercase tracking-[0.22em] text-brass">Contact</p>
+          <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+            Tell me what you are building.
+          </h2>
+          <p className="mt-4 text-mist">
+            The form goes straight to my inbox. If you would rather write directly,
+            email or call — both are fine.
+          </p>
 
-    <div className='flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full'>
-        <div className='pb-8'>
-            <p className='text-4xl font-bold inline border-b-4 border-gray-500'>Contact</p>
-            <p className='py-6'>Submit the form below to get in toch with me</p>
+          <ul className="mt-8 space-y-3 text-sm">
+            <li>
+              <a className="text-fg underline decoration-brass/60 underline-offset-4" href={`mailto:${profile.email}`}>
+                {profile.email}
+              </a>
+            </li>
+            <li>
+              <a className="text-fg underline decoration-brass/60 underline-offset-4" href={`tel:${profile.phone.replace(/\s/g, "")}`}>
+                {profile.phone}
+              </a>
+            </li>
+            <li className="text-mist">{profile.location}</li>
+            <li className="flex gap-4 pt-2">
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-brass hover:text-fg">
+                LinkedIn
+              </a>
+              <a href={profile.github} target="_blank" rel="noreferrer" className="text-brass hover:text-fg">
+                GitHub
+              </a>
+              <a href={profile.resume} download={profile.resumeName} className="text-brass hover:text-fg">
+                Resume
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <div className='flex justify-center items-center'>
-            <form action="https://getform.io/f/bxojpvya" method='POST' className=' flex flex-col w-full md:w-1/2'>
-                <input type="text" name='name' placeholder='Enter your name' className='p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'/>
-                <input type="text" name='email' placeholder='Enter your email' className='my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'/>
-                <textarea name="message" placeholder='Enter your message' rows="10" className='p-2 bg-transparent border-2 rounded-md text-white focus:outline-none'></textarea>
+        <form
+          action="https://getform.io/f/bxojpvya"
+          method="POST"
+          className="rounded-3xl border border-line bg-card p-6 sm:p-8"
+        >
+          <label className="block text-sm text-mist" htmlFor="name">
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            required
+            placeholder="Your name"
+            className="mt-2 w-full rounded-xl border border-line bg-canvas px-4 py-3 text-fg outline-none transition focus:border-brass"
+          />
 
-                <button className='text-white bg-gradient-to-b from-cyan-500 to-blue-500 px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300'>Let's talk</button>
-            </form>
-        </div>
-    </div>
-  </div> 
-}
+          <label className="mt-5 block text-sm text-mist" htmlFor="email">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            placeholder="you@company.com"
+            className="mt-2 w-full rounded-xl border border-line bg-canvas px-4 py-3 text-fg outline-none transition focus:border-brass"
+          />
 
-export default Contact
+          <label className="mt-5 block text-sm text-mist" htmlFor="message">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="6"
+            placeholder="What would you like to talk about?"
+            className="mt-2 w-full resize-y rounded-xl border border-line bg-canvas px-4 py-3 text-fg outline-none transition focus:border-brass"
+          />
+
+          <button
+            type="submit"
+            className="mt-6 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink transition hover:bg-[#f0c48a]"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+
+      <footer className="mx-auto mt-20 max-w-6xl border-t border-line px-5 pt-6 text-sm text-mist">
+        <p>Abhishek Kumar · Software Developer · Bengaluru</p>
+      </footer>
+    </section>
+  );
+};
+
+export default Contact;
